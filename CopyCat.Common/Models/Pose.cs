@@ -4,15 +4,10 @@ using System.Text;
 
 namespace CopyCat.Common.Models
 {
-    public class Pose
+    [Serializable]
+    public class Pose : Landmark
     {
         EPoseLandmark Landmark { get; }
-        public float X { get; }
-        public float Y { get; }
-        public float Z { get; }
-        public float Visibility { get; }
-        public float Presence { get; }
-        public OpenCvSharp.Point Point { get; }
 
         public Pose(
             EPoseLandmark landmark,
@@ -20,16 +15,9 @@ namespace CopyCat.Common.Models
             float y,
             float z,
             float visibility,
-            float presence,
-            OpenCvSharp.Point point)
+            float presence) : base (x, y, z, visibility, presence)
         {
             Landmark = landmark;
-            X = x;
-            Y = y;
-            Z = z;
-            Visibility = visibility;
-            Presence = presence;
-            Point = point;
         }
 
         public IEnumerable<EPoseLandmark> GetNextConnectedLandmarks()

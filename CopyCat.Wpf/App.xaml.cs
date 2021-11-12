@@ -1,4 +1,5 @@
-﻿using CopyCat.Common.Modules;
+﻿using CopyCat.Common.Events;
+using CopyCat.Common.Modules;
 using CopyCat.Wpf.Views;
 using Prism.Ioc;
 using Prism.Unity;
@@ -24,12 +25,16 @@ namespace CopyCat.Wpf
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<PoseTracker>();
+            containerRegistry
+                .RegisterSingleton<PoseTracker>()
+                .RegisterSingleton<EventBusMediator>();
         }
 
         protected override void OnInitialized()
         {
             var poseTracker = Container.Resolve<PoseTracker>();
+
+            
 
             base.OnInitialized();
         }

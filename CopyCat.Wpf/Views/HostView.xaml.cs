@@ -1,6 +1,7 @@
 ﻿using CopyCat.Wpf.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,8 +28,7 @@ namespace CopyCat.Wpf.Views
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             var viewModel = this.DataContext as HostViewModel;
-            //viewModel.SetHostView(this, "MotionRendering.exe");
-            //viewModel.SetHostView(this, "notepad.exe");
+            //viewModel.SetHostView(this, "../../../../Unity.Build/CopyCat.exe");
         }
 
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -78,7 +79,7 @@ namespace CopyCat.Wpf.Helpers
 
             IntPtr handle = ((HwndSource)PresentationSource.FromVisual(hostView)).Handle;
 
-            var info = new ProcessStartInfo(exeName);
+            var info = new ProcessStartInfo(Path.Combine(Directory.GetCurrentDirectory(), exeName));
             info.UseShellExecute = true;
             info.WindowStyle = ProcessWindowStyle.Minimized;
 
